@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'org.codeaurora.snapcam'
+    compileSdk 24
+
+    defaultConfig {
+        applicationId "org.codeaurora.snapcam"
+        minSdk 24
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 24
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // ansenfaces dependencies
+    implementation project(":libaidl")
+
+    implementation 'com.android.support:appcompat-v7:24.2.1'
+}
